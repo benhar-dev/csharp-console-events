@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="MAIN" Id="{51ec683b-10ce-43eb-9703-c0633aae0bfd}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+
+	trigger: BOOL;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF trigger THEN
+	
+	trigger := FALSE;
+	
+	ADSLOGSTR( 
+		msgCtrlMask := ADSLOG_MSGTYPE_ERROR OR ADSLOG_MSGTYPE_MSGBOX,
+        msgFmtStr := 'This is a test message : %s', 
+		strArg := '123'
+	);
+		
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="28" Count="0" />
+      <LineId Id="127" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="131" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="128" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="129" Count="1" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="38" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
